@@ -50,8 +50,6 @@ sources:
     include_dirs:
       - rtl
       - vendor/lowrisc_ip/ip/prim/rtl
-    defines:
-      RVFI: true
     files:
       # Level 0
       - rtl/ibex_pkg.sv
@@ -77,10 +75,18 @@ sources:
       - rtl/ibex_ex_block.sv
       - rtl/ibex_id_stage.sv
       - rtl/ibex_prefetch_buffer.sv
-      - rtl/ibex_tracer.sv
       # Level 3
       - rtl/ibex_if_stage.sv
       # Level 4
       - rtl/ibex_core.sv
       # Level 5
       - rtl/ibex_core_tracing.sv
+  - target: test
+    defines:
+      RVFI: true
+    include_dirs:
+      - rtl
+      - vendor/lowrisc_ip/ip/prim/rtl
+    files:
+      - rtl/ibex_tracer.sv
+      - rtl/ibex_core.sv
